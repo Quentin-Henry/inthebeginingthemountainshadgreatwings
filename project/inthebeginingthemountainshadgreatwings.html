@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <title>go outside</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link rel="stylesheet" type="text/css" href="moutains.css" />
+  </head>
+  <body>
+    <div id="intro"></div>
+
+    <!-- Button to trigger the bottom drawer -->
+
+    <button id="openMenuBtn" class="menu-button D">
+      <img class="D" src="icon/computer_2_cool-3.png" alt="Settings" />
+    </button>
+
+    <div id="menuSystem" class="menu-system D">
+      <!-- Main Menu -->
+      <div id="mainMenu" class="menu-window D" style="display: none">
+        <div class="title-bar D">
+          <span class="title D">Menu</span>
+          <button class="close-button D">✕</button>
+        </div>
+        <div class="menu-content D">
+          <button class="menu-item D" data-submenu="settings">
+            <span class="D"><img class="D" src="icon/gears-0.png" /></span
+            ><span class="D">Settings</span>
+          </button>
+          <button class="menu-item D" data-submenu="controls">
+            <span class="D"
+              ><img class="D" src="icon/input_devices-4.png" /></span
+            ><span class="D">Controls</span>
+          </button>
+          <button class="menu-item D" data-submenu="worldInfo">
+            <img class="D" src="icon/search_web-0.png" /><span class="D"
+              >World Info</span
+            >
+          </button>
+          <div class="menu-divider D"></div>
+          <button class="menu-item D" id="newWorldButton">
+            <span class="D"><img class="D" src="icon/netmeeting-2.png" /></span>
+            <a
+              href="inthebeginingthemountainshadgreatwings.html"
+              style="text-decoration: none"
+              ><span class="D">New World</span></a
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Settings Submenu -->
+      <div
+        id="settingsMenu"
+        class="menu-window submenu D"
+        style="display: none"
+      >
+        <div class="title-bar D">
+          <span class="title D">Settings</span>
+          <button class="close-button D">✕</button>
+        </div>
+        <div class="menu-content D">
+          <div class="setting-item D">
+            <span class="D"><img class="D" src="icon/Power (High).ico" /></span
+            ><span class="D"> Movement Speed </span>
+            <input
+              type="range"
+              id="movementSpeedSlider"
+              min="1"
+              max="10"
+              value="3"
+              class="D"
+            />
+          </div>
+          <div class="setting-item D">
+            <span class="D"><img class="D" src="icon/camera_vid-0.png" /></span>
+            <span class="D"> FOV </span>
+
+            <input
+              type="range"
+              id="fovSlider"
+              min="1"
+              max="140"
+              value="60"
+              class="D"
+            />
+          </div>
+          <div class="setting-item D">
+            <span class="D"
+              ><img class="D" src="icon/loudspeaker_rays-0.png"
+            /></span>
+            <span class="D"> Audio Level </span>
+
+            <input
+              type="range"
+              id="musicVolumeSlider"
+              min="0"
+              step="0.1"
+              max="1"
+              value="0.7"
+              class="D"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls Submenu -->
+      <div
+        id="controlsMenu"
+        class="menu-window submenu D"
+        style="display: none"
+      >
+        <div class="title-bar D">
+          <span class="title D">Controls</span>
+          <button class="close-button D">✕</button>
+        </div>
+        <div class="menu-content D">
+          <p class="D">Use WASD to move and mouse to look around.</p>
+        </div>
+      </div>
+
+      <!-- World Info Submenu -->
+      <div
+        id="worldInfoMenu"
+        class="menu-window submenu D"
+        style="display: none"
+      >
+        <div class="title-bar D">
+          <span class="title D">World Info</span>
+          <button class="close-button D">✕</button>
+        </div>
+        <div class="menu-content D">
+          <div class="world-info-section D">
+            <div class="info-item D">
+              <span class="D"
+                ><img class="D" src="icon/entire_network_globe-0.png"
+              /></span>
+              <span>World : </span
+              ><span class="D" id="wordlInfoTextWorld">World: Meadow</span>
+            </div>
+            <div class="info-item D">
+              <span class="D"
+                ><img class="D" src="icon/cd_audio_cd_a-4.png"
+              /></span>
+              <span>Music : </span>
+              <span class="D" id="wordlInfoTextAudio">Music: Ambient</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="DontShow">
+      Walking Speed: <span class="DontShow" id="movementSpeedValue">3</span>
+    </p>
+    <p class="DontShow">FOV: <span class="DontShow" id="fovValue">60</span></p>
+    <p class="DontShow">
+      Audio Volume: <span class="DontShow" id="volumeValue">70</span>
+    </p>
+  </body>
+  <script src="./wings.js" type="module"></script>
+  <script src="./page.js"></script>
+</html>

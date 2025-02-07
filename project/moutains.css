@@ -1,0 +1,549 @@
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+@font-face {
+  font-family: "VHS Gothic";
+  src: url("fonts/Screener W01 Regular.otf") format("opentype");
+}
+
+#contentG {
+  width: 100%;
+}
+#intro {
+  width: 100vw;
+  height: 110vh;
+  position: fixed;
+  top: 0vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(
+    100px
+  ); /* Add this line first, it fixes blur for Safari*/
+
+  backdrop-filter: blur(100px);
+}
+
+#diagram {
+  padding-top: 10%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+}
+
+.clicked {
+  opacity: 0;
+  transition: 1s;
+}
+
+#reloadButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Button to open the bottom drawer */
+.open-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-style: solid;
+  border-width: 4px;
+  border-left-color: white;
+  border-top-color: white;
+  border-bottom-color: dimgrey;
+  border-right-color: dimgrey;
+
+  transform: translateX(-50%);
+  background-color: darkgray;
+  cursor: pointer;
+  width: 5vw;
+  height: 5vw;
+}
+
+.open-btn:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}
+.open-btn:active {
+  background-color: darkgrey;
+  color: black;
+  border-left-color: dimgrey;
+  border-top-color: dimgrey;
+  border-bottom-color: white;
+  border-right-color: white;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.open-btn:focus {
+  outline: #ffffff;
+}
+
+img {
+  width: 25%;
+}
+/* Bottom Drawer (initially hidden) */
+.drawer {
+  position: fixed;
+  bottom: -100%; /* Hidden below the screen initially */
+  left: 50vw;
+  right: 10;
+  height: 40%;
+  border: 0.5px solid #ffffff70;
+
+  background-color: darkgray;
+
+  color: white;
+  overflow-y: auto;
+
+  z-index: 6;
+  transition: 0.5s;
+}
+
+.subDrwawer {
+  position: fixed;
+  bottom: -100%; /* Hidden below the screen initially */
+  left: 50;
+  right: 50;
+  border-radius: 10px;
+  border: 0.5px solid #ffffff70;
+
+  background-color: rgba(255, 255, 255, 0.052);
+  -webkit-backdrop-filter: blur(
+    100px
+  ); /* Add this line first, it fixes blur for Safari*/
+
+  backdrop-filter: blur(100px);
+  color: white;
+  overflow-y: auto;
+  transition: bottom 0.5s ease-in-out;
+}
+
+#worldInfoIcon {
+  width: 30%;
+}
+
+#worldInfo {
+  height: 60%;
+
+  z-index: 5;
+}
+
+#worldInfoContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+#worldInfoContentLetter {
+  width: 50%;
+  margin-right: 10%;
+}
+
+#worldInfoContentCreditBox {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.WorldInfoCreditDiv {
+  display: flex;
+  align-items: center;
+}
+
+.WorldInfoCreditDivTextHolder {
+  width: 80%;
+}
+
+.WorldInfoCreditDivIconHolder {
+  width: 20%;
+}
+.subDrwawerContent {
+  padding: 10%;
+}
+
+#controls {
+  height: 80%;
+  z-index: 4;
+}
+
+#settings {
+  height: 50%;
+  z-index: 3;
+}
+
+.settingsCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Drawer content */
+.drawer-content {
+  padding-top: 5%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.drawer-item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 25%;
+}
+
+.drawerButton {
+  border: 0px solid #e9e9e970;
+  background-color: rgba(255, 255, 255, 0);
+
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.drawer-item:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+#newWorldButton {
+  background-color: rgba(207, 207, 207, 0);
+}
+
+#newWorldButton:hover {
+  background-color: #ffffff00;
+}
+
+/* Close button */
+.close-btn {
+  position: fixed;
+  left: 50%;
+  border: 0.5px solid #e9e9e970;
+  transform: translateX(-50%);
+  padding: 1.25vw 5vw;
+  background-color: rgba(255, 255, 255, 0.886);
+  -webkit-backdrop-filter: blur(
+    100px
+  ); /* Add this line first, it fixes blur for Safari*/
+
+  backdrop-filter: blur(100px);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.one {
+  bottom: 40px;
+}
+
+.two {
+  bottom: 40px;
+}
+
+.three {
+  bottom: 40px;
+}
+
+.four {
+  bottom: 40px;
+}
+
+.close-btn:hover {
+  opacity: 0.5;
+}
+.DontShow {
+  display: none;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+@font-face {
+  font-family: "W95FA";
+  src: url("fonts/W95FA.otf") format("opentype");
+}
+
+.menu-system {
+  font-size: 0.75rem;
+
+  font-family: "W95FA", sans-serif;
+
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.menu-button {
+  position: fixed;
+  bottom: 10;
+  right: 10;
+  width: 3rem;
+  height: 3rem;
+  background-color: #d4d0c8;
+  border: 2px solid;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto !important;
+}
+
+.menu-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.menu-window {
+  position: absolute;
+  width: 18rem;
+  background-color: #d4d0c8;
+  border: 2px solid;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9997;
+}
+
+.title-bar {
+  background: rgb(96, 96, 96);
+  background: linear-gradient(
+    90deg,
+    rgba(96, 96, 96, 1) 0%,
+    rgba(203, 203, 203, 1) 100%
+  );
+  color: white;
+  padding: 0.2rem 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.125rem 0.325rem;
+  background-color: darkgrey;
+  border: 2px solid;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+}
+
+.close-button:hover {
+  background-color: #d01010;
+}
+
+.menu-content {
+  padding: 0.5rem;
+}
+
+.menu-item {
+  font-family: "W95FA", sans-serif;
+
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #a4a4a4;
+  color: white;
+}
+
+.menu-item img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: #808080;
+  margin: 0.5rem 0;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.setting-item img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.setting-item input[type="range"] {
+  flex-grow: 1;
+}
+
+.controls-diagram {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.world-info-section {
+  padding-top: 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-item img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Menu positioning classes */
+#mainMenu {
+  bottom: 50px;
+  right: 50px;
+}
+
+#settingsMenu {
+  bottom: 100px;
+  right: 100px;
+}
+
+#controlsMenu {
+  bottom: 200px;
+  right: 200px;
+}
+
+#worldInfoMenu {
+  bottom: 300px;
+  right: 300px;
+}
+
+.title {
+  font-size: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+
+  width: 100px;
+  height: 20px;
+  background: transparent;
+  margin: 20px;
+}
+
+/* Track styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Thumb styles */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 21px;
+  width: 11px;
+  background: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff #888 #888 #fff;
+  box-shadow: inset -1px -1px #000;
+  margin-top: -10px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 21px;
+  width: 11px;
+  background: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff #888 #888 #fff;
+  box-shadow: inset -1px -1px #000;
+}
+
+input[type="range"]::-ms-thumb {
+  height: 21px;
+  width: 11px;
+  background: #c0c0c0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff #888 #888 #fff;
+  box-shadow: inset -1px -1px #000;
+}
+
+/* Remove focus outline */
+input[type="range"]:focus {
+  outline: none;
+}
