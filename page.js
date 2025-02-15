@@ -596,9 +596,7 @@ W,A,S,D Keys - Movement
 Mouse - Look around
 ***************************
 
-Click to Start Audio
-
-go outside? [Y/N]: `,
+Start Simulation? [Y/N]: `,
   ];
 
   let currentSnippet = 0;
